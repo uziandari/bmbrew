@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Landing confirmAge={ this.props.actions.verifyAge } />
+        <Landing />
       </div>
     );
   }
@@ -21,7 +21,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    age: state.age
+    authenticated: state.authenticated
   };
 }
 

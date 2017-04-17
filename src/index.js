@@ -1,24 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+import { applyMiddleware, createStore } from 'redux';
+
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router } from 'react-router';
+import Routes from './routes';
+import { createBrowserHistory } from 'history';
+import { default as reducers } from './reducers';
+import { render } from 'react-dom';
+import { syncHistoryWithStore } from 'react-router-redux';
+import thunk from 'redux-thunk';
 
-import App from './containers/App';
-import Welcome from './containers/Welcome';
-import Outlaw from './components/Outlaw';
+const store = createStore(reducers, applyMiddleware(thunk));
+const history = syncHistoryWithStore(createBrowserHistory(), store);
 
-const store = configureStore();
-
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <div>
-        <Route exact path="/" component={App} />
-        <Route path="/outlaw" component={Outlaw} />
-        <Route path="/welcome" component={Welcome} />
-      </div>
-    </Router>
+render(
+  <Provider store={ store } key="provider">
+    <Router history={ history } children={ Routes } />
   </Provider>,
   document.getElementById('root')
 );
