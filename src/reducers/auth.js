@@ -15,7 +15,7 @@ export default function ageGate(state = initialState, action) {
       return {
         ...state,
         authenticated: false,
-        access: action.payload
+        age: action.payload
       };
     default:
       return state;

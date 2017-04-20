@@ -8,27 +8,13 @@ import Landing from './Landing';
 //styles
 import '../styles/App.css'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div>
-        <Landing age={this.props.age.access}
-          onAgeChange={this.props.actions.authorizeUser} />
+        { this.props.children }
       </div>
-    );
+    )
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    age: state.age
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(Actions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+  

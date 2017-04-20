@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import AgeReducer from './age';
+import AuthReducer from './auth';
 import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  age: AgeReducer,
+  auth: AuthReducer,
   routing: routerReducer
 });
 

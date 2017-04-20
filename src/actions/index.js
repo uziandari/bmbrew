@@ -7,7 +7,7 @@ export const NOT_OLD_ENOUGH = 'NOT_OLD_ENOUGH';
 export function authorizeUser(age) {
   return function(dispatch) {
     if (parseInt(age) > 20 && parseInt(age) < 131) {
-      dispatch(verifyAge());
+      dispatch(verifyAge())
       browserHistory.push('/welcome');
     } else {
       dispatch(notOld(age));

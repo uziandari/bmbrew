@@ -21,7 +21,7 @@ export default function configureStore(initialState) {
     });
   }
 
-  store.dispatch(Actions.verifyAge());
+  store.dispatch(Actions.authorizeUser());
 
   return store;
 }

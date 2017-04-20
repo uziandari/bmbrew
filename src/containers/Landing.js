@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
 
+//import redux
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
 import '../styles/Landing.css';
 
-export default class Landing extends Component {
+class Landing extends Component {
 
   ageChange(age) {
-    this.props.onAgeChange(age);
+    this.props.actions.authorizeUser(age);
   }
 
   render() {
-    console.log(this.props.age)
-
-    let ageGate = null;
-    if (this.props.age < 21 && this.props.age) {
-      ageGate = <h3 className="not-old-enough">Don't think you're old enough there buckaroo...</h3>
-    } else if (isNaN(parseInt(this.props.age)) && this.props.age) {
-      ageGate = <h3 className="no-number">I don't even see how you can be {this.props.age} years old...</h3>
-    }
-
     return (
       <div className="landing-wrapper">
         <div className="logo"></div>
@@ -25,8 +20,30 @@ export default class Landing extends Component {
           <h2>How old are you?</h2>
           <input className="age-input" type="text" onChange={event => this.ageChange(event.target.value)}  placeholder="Age..." />
         </div>
-        <div className="age-gate">{ageGate}</div>
+        {this.props.age < 21 && this.props.age &&
+          <h2 className="age-gate">Not quite old enough there buckaroo...</h2>
+        }
+        {
+          (isNaN(parseInt(this.props.age)) && this.props.age) &&
+          <h2 className="no-number">I don't even see how you can be {this.props.age} years old...</h2>
+        }
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    age: state.auth.age
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
