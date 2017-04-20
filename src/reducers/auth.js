@@ -1,7 +1,8 @@
-import { AGE_VERIFICATION, NOT_OLD_ENOUGH } from '../actions';
+import { AGE_VERIFICATION, NOT_OLD_ENOUGH, CLEAR_AGE } from '../actions';
 
 const initialState = {
-  authenticated: false
+  authenticated: false,
+  age: null
 };
 
 export default function ageGate(state = initialState, action) {
@@ -16,6 +17,11 @@ export default function ageGate(state = initialState, action) {
         ...state,
         authenticated: false,
         age: action.payload
+      };
+    case CLEAR_AGE:
+      return {
+        ...state,
+        age: null
       };
     default:
       return state;

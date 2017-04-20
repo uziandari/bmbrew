@@ -8,6 +8,10 @@ import '../styles/Landing.css';
 
 class Landing extends Component {
 
+  componentWillUnmount() {
+    this.props.actions.clearAge();
+  }
+
   ageChange(age) {
     this.props.actions.authorizeUser(age);
   }
@@ -25,7 +29,7 @@ class Landing extends Component {
         }
         {
           (isNaN(parseInt(this.props.age)) && this.props.age) &&
-          <h2 className="no-number">I don't even see how you can be {this.props.age} years old...</h2>
+          <h2 className="no-number">I don't even see how you can be <strong>{this.props.age}</strong> years old...</h2>
         }
       </div>
     );

@@ -2,6 +2,7 @@ import { browserHistory } from 'react-router';
 
 export const AGE_VERIFICATION = 'AGE_VERIFICATION';
 export const NOT_OLD_ENOUGH = 'NOT_OLD_ENOUGH';
+export const CLEAR_AGE = 'CLEAR_AGE';
 
 
 export function authorizeUser(age) {
@@ -13,6 +14,12 @@ export function authorizeUser(age) {
       dispatch(notOld(age));
       }
     }
+}
+
+export function clearAge() {
+  return {
+    type: CLEAR_AGE
+  }
 }
   
 export function verifyAge() {
