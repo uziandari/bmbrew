@@ -3,7 +3,9 @@ import { withRouter, Link } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
 
 import Routes from './Routes';
+import Navigation from './containers/Navigation';
 import RouteNavItem from './components/RouteNavItem';
+
 import './styles/app.css';
 
 class App extends Component {
@@ -35,19 +37,6 @@ class App extends Component {
 
     return (
       <div className="App container">
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/">Brick &amp; Mortar</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <RouteNavItem onClick={this.handleNavLink} href="/beers">Beers</RouteNavItem>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
         <Routes childProps={childProps} />
       </div>
       );

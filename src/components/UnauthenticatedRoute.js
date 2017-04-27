@@ -17,7 +17,7 @@ export default ({ component: C, props: cProps, ...rest }) => {
   const redirect = querystring('redirect');
   return (
     <Route {...rest} render={props => (
-      cProps.age === null
+      cProps.age === null || cProps.age < 21
         ? <C {...props} {...cProps} />
         : <Redirect to={(redirect === '' || redirect === null)
             ? '/'
