@@ -36,7 +36,7 @@ class App extends Component {
     };
 
     return (
-      <div className="App container">
+      <div className="App-container">
         <Routes childProps={childProps} />
       </div>
       );

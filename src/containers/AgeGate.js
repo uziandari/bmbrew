@@ -4,6 +4,7 @@ import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import LoaderButton from '../components/LoaderButton';
 
 import '../styles/login.css';
+import bmLogo from '../images/bmlogo.png';
 
 export default class Login extends Component {
   constructor(props) {
@@ -32,9 +33,10 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
+        <img className="age-logo" src={bmLogo} />
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="enteredAge" bsSize="large">
-            <ControlLabel>I am</ControlLabel>
+            <ControlLabel className="age-label">I am</ControlLabel>
             <FormControl
               autoFocus
               type="number"
