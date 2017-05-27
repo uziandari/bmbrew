@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton';
 
 import LoaderButton from '../components/LoaderButton';
 
@@ -16,7 +17,7 @@ export default class Login extends Component {
   }
 
   validateForm() {
-    return this.state.enteredAge.length > 1;
+    return this.state.enteredAge > 20;
   }
 
   handleChange = (event) => {
@@ -26,6 +27,7 @@ export default class Login extends Component {
   }
 
   handleSubmit = async (event) => {
+    console.log('submitted')
     event.preventDefault();
     this.props.updateAge(this.state.enteredAge);
   }
@@ -35,23 +37,33 @@ export default class Login extends Component {
       <div className="Login">
         <img className="age-logo" src={bmLogo} alt="brick-mortar-logo" />
         <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="enteredAge" bsSize="large">
-            <ControlLabel className="age-label">I AM</ControlLabel>
-            <FormControl
-              autoFocus
-              type="number"
-              value={this.state.enteredAge}
-              onChange={this.handleChange} />
-          </FormGroup>
-          <LoaderButton
-            block
-            bsSize="large"
-            disabled={ ! this.validateForm() }
+          <div>
+            <TextField type="number"
+                      id="enteredAge"
+                      floatingLabelText="I am"
+                      value={this.state.enteredAge}
+                      onChange={this.handleChange}
+                      floatingLabelStyle={formStyle.inputAge}
+                      inputStyle={formStyle.inputAge} />
+          </div>
+          <RaisedButton
             type="submit"
-            text="Years Old"
-            loadingText="Okay Then..." />
+            primary={true}
+            disabled={ ! this.validateForm() }
+            label="Years Old"
+            style = {(this.state.enteredAge > 20) ? formStyle.ageButton : null} />
         </form>
       </div>
     );
+  }
+};
+
+const formStyle = {
+  ageButton: {
+    color: '#fff'
+  },
+  inputAge: {
+    color: '#fff',
+    fontSize: "24px"
   }
 };

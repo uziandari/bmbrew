@@ -6,7 +6,7 @@ import Navigation from './Navigation';
 export default class Evemts extends Component {
   render() {
     return (
-      <div className="events">
+      <div className="events-container">
         <Navigation />
         <div className="lander">
           <h1>Events</h1>

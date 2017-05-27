@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 
 import Routes from './Routes';
 
 import './styles/app.css';
+
+injectTapEventPlugin();
+
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +19,7 @@ class App extends Component {
       age: null
     }
   }
+  
 
   updateAge = (age) => {
     console.log(age);
@@ -33,9 +40,11 @@ class App extends Component {
     };
 
     return (
-      <div className="App-container">
-        <Routes childProps={childProps} />
-      </div>
+      <MuiThemeProvider>
+        <div className="App-container">
+          <Routes childProps={childProps} />
+        </div>
+      </MuiThemeProvider>
       );
     }
   }
