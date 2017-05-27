@@ -7,7 +7,6 @@ import AgeGate from './containers/AgeGate';
 import Beers from './containers/Beers';
 import Events from './containers/Events';
 
-import AppliedRoute from './components/AppliedRoute';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import UnauthenticatedRoute from './components/UnauthenticatedRoute';
 

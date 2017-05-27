@@ -1,20 +1,19 @@
-@media all and (min-width: 480px) {
+@media all and (min-width: 768px) {
   .Login {
     min-height: 100vh;
     display: flex;
     flex: 1;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 4% 0;
   }
 
   .Login form {
     max-width: 320px;
-    margin-top: 1%;
+    margin-top: 8%;
   }
 
   .age-logo {
-    margin: 0 0 1% -25%;
+    margin: 0 5% 10% 25%;
     -ms-transform: rotate(-14deg); /* IE 9 */
     -webkit-transform: rotate(-14deg); /* Chrome, Safari, Opera */
     transform: rotate(-14deg);

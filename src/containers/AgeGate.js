@@ -33,10 +33,10 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <img className="age-logo" src={bmLogo} />
+        <img className="age-logo" src={bmLogo} alt="brick-mortar-logo" />
         <form onSubmit={this.handleSubmit}>
           <FormGroup controlId="enteredAge" bsSize="large">
-            <ControlLabel className="age-label">I am</ControlLabel>
+            <ControlLabel className="age-label">I AM</ControlLabel>
             <FormControl
               autoFocus
               type="number"

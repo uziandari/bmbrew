@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import { Nav, Navbar } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 
 import Routes from './Routes';
-import Navigation from './containers/Navigation';
-import RouteNavItem from './components/RouteNavItem';
 
 import './styles/app.css';
 
