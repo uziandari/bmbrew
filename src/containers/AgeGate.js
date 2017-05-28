@@ -35,24 +35,28 @@ export default class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <img className="age-logo" src={bmLogo} alt="brick-mortar-logo" />
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <TextField type="number"
-                      id="enteredAge"
-                      floatingLabelText="I am"
-                      value={this.state.enteredAge}
-                      onChange={this.handleChange}
-                      floatingLabelStyle={formStyle.inputAge}
-                      inputStyle={formStyle.inputAge} />
-          </div>
-          <RaisedButton
-            type="submit"
-            primary={true}
-            disabled={ ! this.validateForm() }
-            label="Years Old"
-            style = {(this.state.enteredAge > 20) ? formStyle.ageButton : null} />
-        </form>
+        <div className="age-logo">
+          <img src={bmLogo} alt="brick-mortar-logo" />
+        </div>
+        <div className="age-form">
+          <form onSubmit={this.handleSubmit} autoComplete="off">
+            <div>
+              <TextField type="number"
+                        id="enteredAge"
+                        floatingLabelText="I am"
+                        value={this.state.enteredAge}
+                        onChange={this.handleChange}
+                        floatingLabelStyle={formStyle.inputAge}
+                        inputStyle={formStyle.inputAge} />
+            </div>
+            <RaisedButton
+              type="submit"
+              backgroundColor="#8eafbd"
+              disabled={ ! this.validateForm() }
+              label="Years Old"
+              labelStyle = {(this.state.enteredAge > 20) ? formStyle.ageButton : null} />
+          </form>
+        </div>
       </div>
     );
   }
@@ -60,10 +64,11 @@ export default class Login extends Component {
 
 const formStyle = {
   ageButton: {
-    color: '#fff'
+    color: '#fff',
   },
   inputAge: {
     color: '#fff',
-    fontSize: "24px"
+    fontSize: "30px",
+    lineHeight: "12px"
   }
 };

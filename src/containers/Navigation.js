@@ -29,16 +29,17 @@ class Navigation extends Component {
   render() {
     return (
       <div className="nav container">
-        <AppBar title="Brick &amp; Mortar" style={navStyles.navBar} onLeftIconButtonTouchTap={this.handleToggle}>
+        <AppBar title="Brick &amp; Mortar" style={navStyle.navBar} onLeftIconButtonTouchTap={this.handleToggle}>
           <Drawer
             docked={false}
             width={200}
+            containerStyle={navStyle.navDrawer}
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}>
             <Menu>
-              <RouteNavItem onTouchTap={this.handleNavLink} href="/"><MenuItem>Home</MenuItem></RouteNavItem>
-              <RouteNavItem onTouchTap={this.handleNavLink} href="/beers"><MenuItem>Beers</MenuItem></RouteNavItem>
-              <RouteNavItem onTouchTap={this.handleNavLink} href="/events"><MenuItem>Events</MenuItem></RouteNavItem>
+              <RouteNavItem onTouchTap={this.handleNavLink} href="/"><MenuItem style={navStyle.drawerItem}>Home</MenuItem></RouteNavItem>
+              <RouteNavItem onTouchTap={this.handleNavLink} href="/beers"><MenuItem style={navStyle.drawerItem}>Beers</MenuItem></RouteNavItem>
+              <RouteNavItem onTouchTap={this.handleNavLink} href="/events"><MenuItem style={navStyle.drawerItem}>Events</MenuItem></RouteNavItem>
             </Menu>
           </Drawer>
         </AppBar>
@@ -50,10 +51,17 @@ class Navigation extends Component {
   export default withRouter(Navigation);
 
 
-const navStyles = {
+const navStyle = {
   navBar: {
     width: "100vw",
-    backgroundColor: "#0097a7"
+    backgroundColor: "#30415d"
+  },
+  navDrawer: {
+    backgroundColor: "#30415d"
+  },
+  drawerItem: {
+    color: "#fff",
+    fontSize: "18px"
   }
 };
   

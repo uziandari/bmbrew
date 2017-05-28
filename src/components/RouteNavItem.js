@@ -9,6 +9,6 @@ export default (props) => (
 
 const activeStyles = {
   navItem: {
-    backgroundColor: '#ccc'
+    backgroundColor: '#8eaebd'
   }
 };
