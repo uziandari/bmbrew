@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-
 import Routes from './Routes';
 
 import './styles/app.css';
@@ -22,7 +21,6 @@ class App extends Component {
   
 
   updateAge = (age) => {
-    console.log(age);
     this.setState({
       age: age
     });

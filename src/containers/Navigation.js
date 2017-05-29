@@ -28,7 +28,7 @@ class Navigation extends Component {
 
   render() {
     return (
-      <div className="nav container">
+      <div className="nav container" style={navStyle.navContainer}>
         <AppBar title="Brick &amp; Mortar" style={navStyle.navBar} onLeftIconButtonTouchTap={this.handleToggle}>
           <Drawer
             docked={false}
@@ -52,8 +52,12 @@ class Navigation extends Component {
 
 
 const navStyle = {
-  navBar: {
+  navContainer: {
     width: "100vw",
+    padding: "0"
+  },
+  navBar: {
+    width: "100%",
     backgroundColor: "#30415d"
   },
   navDrawer: {
