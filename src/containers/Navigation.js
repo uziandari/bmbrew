@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import AppBar from 'material-ui/AppBar';
 import Menu from 'material-ui/Menu';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import RouteNavItem from '../components/RouteNavItem';
+
+
+const navStyle = {
+  navContainer: {
+    width: "100vw",
+    padding: "0"
+  },
+  navBar: {
+    width: "100%",
+    backgroundColor: "#30415d"
+  },
+  navDrawer: {
+    backgroundColor: "#30415d"
+  },
+  drawerItem: {
+    color: "#fff",
+    fontSize: "18px"
+  }
+};
+  
 
 class Navigation extends Component {
   constructor(props) {
@@ -50,22 +69,3 @@ class Navigation extends Component {
 
   export default withRouter(Navigation);
 
-
-const navStyle = {
-  navContainer: {
-    width: "100vw",
-    padding: "0"
-  },
-  navBar: {
-    width: "100%",
-    backgroundColor: "#30415d"
-  },
-  navDrawer: {
-    backgroundColor: "#30415d"
-  },
-  drawerItem: {
-    color: "#fff",
-    fontSize: "18px"
-  }
-};
-  

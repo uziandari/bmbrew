@@ -2,15 +2,24 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton';
 
-import LoaderButton from '../components/LoaderButton';
 
 import '../styles/login.css';
 import bmLogo from '../images/bmlogo.png';
 
+const formStyle = {
+  ageButton: {
+    color: '#fff',
+  },
+  inputAge: {
+    color: '#fff',
+    fontSize: "30px",
+    lineHeight: "12px"
+  }
+};
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       enteredAge: '',
     };
@@ -54,7 +63,7 @@ export default class Login extends Component {
               backgroundColor="#8eafbd"
               disabled={ ! this.validateForm() }
               label="Years Old"
-              labelStyle = {(this.state.enteredAge > 20) ? formStyle.ageButton : null} />
+              labelStyle={(this.state.enteredAge > 20) ? formStyle.ageButton : null} />
           </form>
         </div>
       </div>
@@ -62,13 +71,3 @@ export default class Login extends Component {
   }
 };
 
-const formStyle = {
-  ageButton: {
-    color: '#fff',
-  },
-  inputAge: {
-    color: '#fff',
-    fontSize: "30px",
-    lineHeight: "12px"
-  }
-};
