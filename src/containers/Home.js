@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 
 
@@ -10,21 +9,33 @@ import bmLogo from '../images/bmlogo.png';
 import bmbrewOutside from '../images/bmbrewOutside.jpg';
 
 const homeStyles = {
-  staticLogo: {
-    position: "absolute",
-    left: "-10%",
-    bottom: "-10%",
-    zIndex: "10",
-    transform: "rotate(37deg)",
+  container: {
+    width: "100%",
   },
   header: {
-    padding: "72px 48px",
+    display: "flex",
+    WebKitDisplay: "flex",
+    alignItems: "center",
+    padding: "50px",
     overflow: "hidden",
-    margin: "0 auto"
+    width: "100%",
+    marginTop: "4%"
   },
-  welcomeText: {
+  headerWrap: {
+    display: "flex",
+    WebKitDisplay: "flex"
+  },
+  headerContent: {
+    flex: "2.5 0 0",
+    color: "#fff",
     fontSize: "24px",
-    margin: "25px"
+    justifySelf: "center",
+    alignSelf: "center",
+  },
+  headerImage: {
+    flex: "1 0 0",
+    display: "inline-block",
+    margin: "0 10px"
   }
 };
 
@@ -40,22 +51,22 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div className="Home" style={homeStyles.container}>
+      <div className="home-container" style={homeStyles.container}>
         <Navigation />
-        <Drawer width={300} openSecondary={true} open={this.state.eventsOpen}>
-          <UpcomingEvents />
-        </Drawer>
-        <img style={homeStyles.staticLogo} src={bmLogo} alt="brick-mortar-logo" />
         <div className="home-header" style={homeStyles.header}>
-          <img src={bmbrewOutside} alt="bmbrew outside" />
-        </div>
-        <div className="welcome-text" style={homeStyles.welcomeText}>
-          <p>Welcome to Brick &amp; Mortar Brewery --Suffolk's first local brewery. Est 2017.</p>
-          <p>Browse about, or see our </p>
-            <RaisedButton
-              label="upcoming events"
-              onTouchTap={this.handleEventToggle}
-            />
+          <div className="header-wrap" style={homeStyles.headerWrap}>
+            <div className="header-content" style={homeStyles.headerContent}>
+              <h1>Welcome to Brick &amp; Mortar Brewery --Suffolk's first local brewery. Est 2017.</h1>
+                <p>Browse about, or see our </p>
+                <RaisedButton
+                  label="upcoming events"
+                  onTouchTap={this.handleEventToggle}
+                />
+            </div>
+            <div className="header-image" style={homeStyles.headerImage}>
+              <img src={bmbrewOutside} alt="b m brew outside view" />
+            </div>
+          </div>
         </div>
       </div>
     );

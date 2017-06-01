@@ -43,7 +43,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="login-container">
         <div className="age-logo">
           <img src={bmLogo} alt="brick-mortar-logo" />
         </div>

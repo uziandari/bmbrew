@@ -15,10 +15,10 @@ const navStyle = {
   },
   navBar: {
     width: "100%",
-    backgroundColor: "#30415d"
+    backgroundColor: "#0079d3"
   },
   navDrawer: {
-    backgroundColor: "#30415d"
+    backgroundColor: "#0079d3"
   },
   drawerItem: {
     color: "#fff",
